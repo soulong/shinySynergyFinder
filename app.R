@@ -56,10 +56,12 @@ ui <- shinyUI(
 app <- shinyApp(ui, server)
 
 
+# run locally
 if(interactive()) {
   runApp(app, host='0.0.0.0', port=5000L)
 }
 
+# run with GitHub
 if(F) {
   runGitHub('shinySynergyFinder', 'soulong', host='0.0.0.0', port=5000L)
 }
