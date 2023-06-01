@@ -52,7 +52,7 @@ run_synergyfinder <- function(data,
     suppressWarnings(
       PlotDoseResponse(
         data = res,
-        block_ids = c(1, 2),
+        block_ids = unique(res$drug_pairs$block_id),
         drugs = c(1,2),
         save_file = TRUE,
         file_type = "pdf")
@@ -138,11 +138,11 @@ run_synergyfinder <- function(data,
 ## test here
 if(F) {
   
-  file <- 'C:/Users/haohe/Desktop/230306 Results Format_LJJ.xlsx'
+  file <- 'C:/Users/haohe/Downloads/20230320 SW837 SynergyFinder Results Format triple.csv'
   dirname(file) %>% setwd()
   
-  data <- readxl::read_excel(file)
-  res <- run_synergyfinder(data, 'inhibition')
+  data <- read_csv(file)
+  res <- run_synergyfinder(data, 'viability')
   
   if(F) {
     # data(mathews_screening_data)
