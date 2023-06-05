@@ -23,6 +23,9 @@ run_synergyfinder <- function(data,
     stop("type must in 'viability' or 'inhibition'")
   }
   
+  # remove NA rows
+  data <- drop_na(data, block_id)
+  
   # reshape
   data <- ReshapeData(
     data = data,
@@ -138,7 +141,7 @@ run_synergyfinder <- function(data,
 ## test here
 if(F) {
   
-  file <- 'C:/Users/haohe/Downloads/20230320 SW837 SynergyFinder Results Format triple.csv'
+  file <- 'C:/Users/haohe/Desktop/20230605 N358 H358R 2122 H23 Mia SynergyFinder Results Format.csv'
   dirname(file) %>% setwd()
   
   data <- read_csv(file)
