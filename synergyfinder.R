@@ -1,6 +1,5 @@
 
 
-if(!require(synergyfinder)) BiocManager::install('synergyfinder')
 library(synergyfinder)
 library(tidyverse)
 library(patchwork)

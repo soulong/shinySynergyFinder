@@ -1,4 +1,10 @@
 
+if(F) {
+  # options("repos" = c(CRAN="https://mirrors.tuna.tsinghua.edu.cn/CRAN/"))
+  # options(BioC_mirror="https://mirrors.tuna.tsinghua.edu.cn/bioconductor")
+  BiocManager::install(c('shiny','magrittr','patchwork','tidyverse','synergyfinder'))
+}
+
 
 library(shiny)
 
