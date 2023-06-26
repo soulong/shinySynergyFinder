@@ -16,7 +16,12 @@ source('synergyFinder.R')
 server <- function(input, output) {
   
   data <- eventReactive(input$submit, {
-    tmpdir <- tempdir()
+    tmpdir <- str_glue("{tempdir()}_download")
+    if(dir.exists(tmpdir)) {
+      files <- list.files(tmpdir, all.files=T, full.names=T, recursive=T, include.dirs=T)
+      tmpdir <- unlink(files, recursive=T)
+      }
+    
     withProgress(
       read_csv(input$input_file$datapath) %>%
         run_synergyfinder(type=input$type, save_dir=tmpdir),
