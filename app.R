@@ -19,7 +19,7 @@ server <- function(input, output) {
     tmpdir <- str_glue("{tempdir()}_download")
     if(dir.exists(tmpdir)) {
       files <- list.files(tmpdir, all.files=T, full.names=T, recursive=T, include.dirs=T)
-      tmpdir <- unlink(files, recursive=T)
+      unlink(files, recursive=T)
       }
     
     withProgress(
