@@ -47,6 +47,7 @@ run_synergyfinder <- function(data,
   # head(res)
   
   # save result
+  if(!dir.exists(save_dir)) dir.create(save_dir, recursive=T)
   if(!is.null(save_file)) {
     writexl::write_xlsx(res, file.path(save_dir, save_file))
     
